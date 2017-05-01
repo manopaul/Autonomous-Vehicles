@@ -14758,55 +14758,6 @@ The image 5 is about [ 0.47229764  0.24313045  0.13881393  0.04215979  0.0407932
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For each of the new images, print out the model's softmax probabilities to show the <strong>certainty</strong> of the model's predictions (limit the output to the top 5 probabilities for each image). <a href="https://www.tensorflow.org/versions/r0.12/api_docs/python/nn.html#top_k"><code>tf.nn.top_k</code></a> could prove helpful here.</p>
-<p>The example below demonstrates how tf.nn.top_k can be used to find the top k predictions for each image.</p>
-<p><code>tf.nn.top_k</code> will return the values and indices (class ids) of the top k predictions. So if k=3, for each sign, it'll return the 3 largest probabilities (out of a possible 43) and the correspoding class ids.</p>
-<p>Take this numpy array as an example. The values in the array represent predictions. The array contains softmax probabilities for five candidate images with six possible classes. <code>tk.nn.top_k</code> is used to choose the three classes with the highest probability:</p>
-
-<pre><code># (5, 6) array
-a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
-         0.12789202],
-       [ 0.28086119,  0.27569815,  0.08594638,  0.0178669 ,  0.18063401,
-         0.15899337],
-       [ 0.26076848,  0.23664738,  0.08020603,  0.07001922,  0.1134371 ,
-         0.23892179],
-       [ 0.11943333,  0.29198961,  0.02605103,  0.26234032,  0.1351348 ,
-         0.16505091],
-       [ 0.09561176,  0.34396535,  0.0643941 ,  0.16240774,  0.24206137,
-         0.09155967]])</code></pre>
-<p>Running it through <code>sess.run(tf.nn.top_k(tf.constant(a), k=3))</code> produces:</p>
-
-<pre><code>TopKV2(values=array([[ 0.34763842,  0.24879643,  0.12789202],
-       [ 0.28086119,  0.27569815,  0.18063401],
-       [ 0.26076848,  0.23892179,  0.23664738],
-       [ 0.29198961,  0.26234032,  0.16505091],
-       [ 0.34396535,  0.24206137,  0.16240774]]), indices=array([[3, 0, 5],
-       [0, 1, 4],
-       [0, 5, 1],
-       [1, 3, 5],
-       [1, 4, 3]], dtype=int32))</code></pre>
-<p>Looking just at the first row we get <code>[ 0.34763842,  0.24879643,  0.12789202]</code>, you can confirm these are the 3 largest probabilities in <code>a</code>. You'll also notice <code>[3, 0, 5]</code> are the corresponding indices.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p><strong>Note</strong>: Once you have completed all of the code implementations and successfully answered each question above, you may finalize your work by exporting the iPython Notebook as an HTML document. You can do this by using the menu above and navigating to  \n",
-    "<strong>File -&gt; Download as -&gt; HTML (.html)</strong>. Include the finished document along with this notebook as your submission.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
     </div>
   </div>
 </body>
