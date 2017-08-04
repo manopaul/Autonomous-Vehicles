@@ -13,8 +13,7 @@ To run the Code you have two options
 1. Navigate to the build directory in a terminal window and run the ExtendedKF executable using the following syntax
 ./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt 
 The terminal should output "listening on port 4567"
-2. Then Run the simulator 
-If you are on the Mac, then the simulator can be found in the simulator directory.
+2. Then Run the simulator for your flavor of Operating System that is provided in the course
 When the simulator runs, select the first Project EFK/UKF
 The terminal window should now show "Connected!!!"
 3. Click the Start button in the simulator
