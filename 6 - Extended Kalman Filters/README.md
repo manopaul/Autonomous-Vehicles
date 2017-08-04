@@ -7,3 +7,6 @@ The github repository includes:
 3. a Docs folder, which contains details about the structure of the code templates (no changes were made)
 4. CMakeLists.txt file that will be used when compiling your code (no changes were made)
 5. a data folder with the data file named obj_pose-laser-radar-synthetic-input.txt for testing your extended Kalman filter which the simulator interface provides.
+6. The cmakepatch.txt file that was used for making uWebSockets work in a Mac OS system
+
+
