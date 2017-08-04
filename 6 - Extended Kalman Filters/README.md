@@ -9,14 +9,6 @@ The github repository includes:
 5. a data folder with the data file named obj_pose-laser-radar-synthetic-input.txt for testing your extended Kalman filter which the simulator interface provides.
 6. The cmakepatch.txt file that was used for making uWebSockets work in a Mac OS system.
 
-To run the Code you have two options
-1. Navigate to the build directory in a terminal window and run the ExtendedKF executable using the following syntax
-./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt 
-The terminal should output "listening on port 4567"
-2. Then Run the simulator for your flavor of Operating System that is provided in the course
-When the simulator runs, select the first Project EFK/UKF
-The terminal window should now show "Connected!!!"
-
 To Run the Code
 
 Clone this repo locally and perform
