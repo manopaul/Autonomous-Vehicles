@@ -27,7 +27,7 @@ Clone this repo locally and perform
 5. Run the make command as follows: make
 6. You should see a few files get generated and you will see the ExtendedKF executable created.
 7. Run the ExtendedKF executable by supplying it with an input file (from the data directory) 
-You can see the output of the program on screen or you can pipe it to a log file and open it
+You can see the output of the program on screen or you can pipe it to a log file (EKF_Output.txt) and open it
 
 7.a. To see the computations on screen, run without specifying any output and piping it
 ./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt 
@@ -39,12 +39,12 @@ Click the Start button in the simulator
 The Terminal will output the results of the EKF filter computations and you will see the measurement and update values plotted on the simulator. 
 
 7.b. To log the output and open it, run the program by specifying an output file name and piping it into a log file as follows.
-./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt ../data/output.txt > EKF.log
+./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt > ../data/EKF_Output.txt
 Note you will not see anything printed on the terminal window.
 Just run the simulator for your flavor of Operating System that is provided in the course
 When the simulator runs, select the first Project EFK/UKF
 Click the Start button in the simulator
 Once it completes, quit the simulator and 
-navigate to the data directory where you will see the log file name EKF.log
-Open the EKF.log in any text editor
+navigate to the "data" directory where you will see the log file name EKF.log
+Open the EKF_Output.txt in any text editor
 
