@@ -9,8 +9,7 @@ The github repository includes:
 5. a data folder with the data file named obj_pose-laser-radar-synthetic-input.txt for testing your extended Kalman filter which the simulator interface provides.
 6. The cmakepatch.txt file that was used for making uWebSockets work in a Mac OS system.
 
-##To Run the Code
------------------
+To Run the Code
 
 Clone this repo locally and perform
 1. Navigate to the directory for this repo in a Terminal (Command Prompt) window 
