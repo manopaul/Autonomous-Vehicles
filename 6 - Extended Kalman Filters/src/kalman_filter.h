@@ -64,7 +64,7 @@ public:
    */
   void UpdateEKFforRADAR(const Eigen::VectorXd &z);
 
-  void UpdateWithNewEstimate(const Eigen::VectorXd &z, Eigen::VectorXd &predicted_z);
+  void UpdateWithNewEstimate(Eigen::VectorXd &y);
 
 };
 

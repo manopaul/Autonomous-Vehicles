@@ -50,19 +50,8 @@ void KalmanFilter::UpdateEKFforLaser(const VectorXd &z) {
     * update the state by using Kalman Filter equations
   */
   VectorXd predicted_z = H_ * x_;
-  //UpdateWithNewEstimate(z, predicted_z);
-    VectorXd y = z - predicted_z;
-    MatrixXd Ht = H_.transpose();
-    MatrixXd S = H_ * P_ * Ht + R_;
-    MatrixXd Si = S.inverse();
-    MatrixXd K = P_ * Ht * Si;
-    
-    //new estimate (state)
-    x_ = x_ + (K * y);
-    long sizeOfx_ = x_.size();
-    MatrixXd I = MatrixXd::Identity(sizeOfx_, sizeOfx_);
-    P_ = (I - (K * H_)) * P_;
-
+  VectorXd y = z - predicted_z;
+  UpdateWithNewEstimate(y);
 }
 
 void KalmanFilter::UpdateEKFforRADAR(const VectorXd &z) {
@@ -81,23 +70,20 @@ void KalmanFilter::UpdateEKFforRADAR(const VectorXd &z) {
   }
   VectorXd predicted_z(3);
   predicted_z << rho, phi, rho_dot;
-  //UpdateWithNewEstimate(z, predicted_z);
-    VectorXd y = z - predicted_z;
-    MatrixXd Ht = H_.transpose();
-    MatrixXd S = H_ * P_ * Ht + R_;
-    MatrixXd Si = S.inverse();
-    MatrixXd K = P_ * Ht * Si;
-    
-    //new estimate (state)
-    x_ = x_ + (K * y);
-    long sizeOfx_ = x_.size();
-    MatrixXd I = MatrixXd::Identity(sizeOfx_, sizeOfx_);
-    P_ = (I - (K * H_)) * P_;
-
+  VectorXd y = z - predicted_z;
+  // In C++, atan2() returns values between -PI and PI.
+  // When calculating phi in y = z - h(x) for radar measurements,
+  // We should make sure the angle value in y = z - predicted_z is normalized between PI and -PI.
+  // Reference: https://www.nr.edu/chalmeta/271DE/Section%209.1.pdf
+  // There are an infinite number of ways to draw an angle on the coordinate axes. By simply adding or subtracting 360° (or 2π rad) you will arrive at the same place, within the expected range.
+  // For example: 210 degrees terminates at the same place as -150 degrees when plotted.
+  // Calculation Formula Reference: https://github.com/ILYAmLV
+  y[1] -= (2 * M_PI) * floor((y[1] + M_PI) / (2 * M_PI));
+  UpdateWithNewEstimate(y);
 }
 
-void KalmanFilter::UpdateWithNewEstimate(const VectorXd &z, VectorXd &predicted_z) {
-  VectorXd y = z - predicted_z;
+void KalmanFilter::UpdateWithNewEstimate(VectorXd &y) {
+  
   MatrixXd Ht = H_.transpose();
   MatrixXd S = H_ * P_ * Ht + R_;
   MatrixXd Si = S.inverse();
