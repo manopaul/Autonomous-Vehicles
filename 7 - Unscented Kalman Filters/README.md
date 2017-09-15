@@ -2,8 +2,8 @@ This project's GitHub repository contains all of the files that you will need fo
 
 The github repository includes:
 - all of the code that implements the Unscented Kalman Filter (UKF) functionality is in the src folder
-- This README file with instructions on compiling the code
 - a data folder with the data file named obj_pose-laser-radar-synthetic-input.txt for testing your UKF which the simulator interface provides.
+- this README file with instructions on compiling the code
 
 To Run the Code
 
