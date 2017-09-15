@@ -14,8 +14,16 @@ Run the cmake command as follows cmake .. (make sure there is a space between th
 Run the make command as follows: make
 You should see a few files get generated and you will see the UnscentedKF executable created.
 Run the UnscentedKF executable by supplying it with an input file (from the data directory). 
-You can see the output of the program on screen or you can pipe it to a log file (UKF_Output.txt) and open it
+You can see the output of the program on screen.
 
-7.a. To see the computations on screen, run without specifying any output and piping it ./UnscentedKF ../data/obj_pose-laser-radar-synthetic-input.txt The terminal should output "listening on port 4567" Then run the simulator for your flavor of Operating System that is provided in the course When the simulator runs, select the first Project EFK/UKF The terminal window should now show "Connected!!!" Click the Start button in the simulator. You will see the measurement and update values plotted on the simulator and the RMSE values will be computed and shown in the simulator as well. 
+To see the computations on screen, run the following command in your terminal window from the build directory
+./UnscentedKF ../data/obj_pose-laser-radar-synthetic-input.txt 
 
-7.b. To log the output and open it, run the program by specifying an output file name and piping it into a log file as follows. ./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt > ../data/EKF_Output.txt Note you will not see anything printed on the terminal window. Just run the simulator for your flavor of Operating System that is provided in the course When the simulator runs, select the first Project EFK/UKF Click the Start button in the simulator Once it completes, quit the simulator and navigate to the "data" directory where you will see the log file name EKF.log Open the EKF_Output.txt in any text editor
+The terminal should output "listening on port 4567" 
+
+Then run the simulator for your flavor of Operating System that is provided in the course. 
+When the simulator runs, select the first Project EFK/UKF. 
+The terminal window should now show "Connected!!!" 
+Click the Start button in the simulator. 
+
+You will see the measurement and update values plotted on the simulator and the RMSE values will be computed and shown in the simulator as well.
