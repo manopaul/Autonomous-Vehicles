@@ -28,3 +28,16 @@ The terminal window should now show "Connected!!!"
 Click the Start button in the simulator. 
 
 You will see the measurement and update values plotted on the simulator and the RMSE values will be computed and shown in the simulator as well.
+
+
+NOTE:
+To get the RMSE to be within the acceptable range of .09, .10, .40, .30 for px, py, vx, and vy, the process noise standard deviation longitudinal acceleration in m/s^2 (std_a_) was throttled from reduced from the initial 30 to 3 using several trials. 
+and the process noise standard deviation yaw acceleration in rad/s^2 (std_yawdd_) was throttled from 30 to 0.4 using several trials.  
+    
+    // Process noise standard deviation longitudinal acceleration in m/s^2
+    std_a_ = 3; //30
+    
+    // Process noise standard deviation yaw acceleration in rad/s^2
+    std_yawdd_ = 0.4; //30
+
+RMSE calculation in tools.cpp file is the same as was in the EKF project (no changes to the code was made). 
