@@ -1,0 +1,22 @@
+The project's GitHub repository contains all of the files that you will need. The github repository includes:
+
+All of the code that implements the Extended Kalman Filter (EKF) functionality is in the src folder
+This README file with instructions on compiling the code
+A "Docs" folder, which contains details about the structure of the code templates (no changes were made)
+CMakeLists.txt file that will be used when compiling your code (no changes were made)
+a data folder with the data file named obj_pose-laser-radar-synthetic-input.txt for testing your extended Kalman filter which the simulator interface provides.
+The cmakepatch.txt file that was used for making uWebSockets work in a Mac OS system.
+To Run the Code
+
+Clone this repo locally and perform
+
+Navigate to the directory for this repo in a Terminal (Command Prompt) window
+In a terminal, Make a directory called "build" using the mkdir command e.g., mkdir build
+Change directory and navigate into the build directory using the cd command e.g., cd build
+Run the cmake command as follows cmake .. (make sure there is a space between the two dots that follow)
+Run the make command as follows: make
+You should see a few files get generated and you will see the ExtendedKF executable created.
+Run the ExtendedKF executable by supplying it with an input file (from the data directory) You can see the output of the program on screen or you can pipe it to a log file (EKF_Output.txt) and open it
+7.a. To see the computations on screen, run without specifying any output and piping it ./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt The terminal should output "listening on port 4567" Then run the simulator for your flavor of Operating System that is provided in the course When the simulator runs, select the first Project EFK/UKF The terminal window should now show "Connected!!!" Click the Start button in the simulator The Terminal will output the results of the EKF filter computations and you will see the measurement and update values plotted on the simulator.
+
+7.b. To log the output and open it, run the program by specifying an output file name and piping it into a log file as follows. ./ExtendedKF ../data/obj_pose-laser-radar-synthetic-input.txt > ../data/EKF_Output.txt Note you will not see anything printed on the terminal window. Just run the simulator for your flavor of Operating System that is provided in the course When the simulator runs, select the first Project EFK/UKF Click the Start button in the simulator Once it completes, quit the simulator and navigate to the "data" directory where you will see the log file name EKF.log Open the EKF_Output.txt in any text editor
