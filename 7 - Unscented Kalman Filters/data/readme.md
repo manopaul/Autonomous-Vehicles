@@ -1,1 +1,0 @@
-Retarded System 
