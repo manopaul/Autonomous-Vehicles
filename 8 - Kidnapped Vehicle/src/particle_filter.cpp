@@ -147,6 +147,18 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 		// (look at equation 3.33) http://planning.cs.uiuc.edu/node99.html
 		// constants used later for calculating the new weights
 
+		const double K_STD_X = std_landmark[0];
+		const double K_STD_Y = std_landmark[1];
+		//calculate normalization term
+		double K_GAUSS_NORM = (1/(2 * M_PI * K_STD_X * K_STD_Y));
+		const double K_STD_X_SQUARE = pow(K_STD_X,2);
+		const double K_STD_Y_SQUARE = pow(K_STD_Y,2);
+
+		double x_diff, y_diff;
+		double obs_x, obs_y, pred_x, pred_y;
+		double obs_mvgd_w, exponent; //multi-variate gaussian distribution observed weight
+		int assoc_prediction_id;
+
 		num_particles = PARTICLE_COUNT;
 
 		for (int  i = 0; i < num_particles; i++) {
@@ -167,14 +179,15 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 				int lmap_ID = map_landmarks.landmark_list[j].id_i;
 
 				// Add probable landmarks only if the landmarks fall within the sensor range of the particle
-				double abs_x_distance_tween_landmark_and_particle = fabs(lm_x - p_x);
-				double abs_y_distance_tween_landmark_and_particle = fabs(lm_y - p_y);
-				//double error = sqrt(abs_x_distance_tween_landmark_and_particle * abs_x_distance_tween_landmark_and_particle
-				//	+ abs_y_distance_tween_landmark_and_particle * abs_y_distance_tween_landmark_and_particle);
+				// Using helper function dist
+				double dist_between_landmark_and_particle = dist(lm_x, lm_y, p_x, p_y);
 
-				//if(error < sensor_range) {
-				if(abs_x_distance_tween_landmark_and_particle <= sensor_range
-					&& abs_y_distance_tween_landmark_and_particle <= sensor_range) {
+				/***
+				cout << "distance " << dist_between_landmark_and_particle << endl;
+				cout << "sensor range " << sensor_range << endl;
+				***/
+
+				if(dist_between_landmark_and_particle < sensor_range) {
 						//Add to the probable_landmarks vector
 						/**
 						LandmarkObs landmark = {
@@ -218,17 +231,6 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 			particles[i].weight = 1.0;
 			double w = 1.0; //Initialized Weight to 1 (starting weight)
 
-			double x_diff, y_diff;
-			double obs_x, obs_y, pred_x, pred_y;
-			int assoc_prediction_id;
-
-			double std_x = std_landmark[0];
-			double std_y = std_landmark[1];
-			//calculate normalization term
-			double gauss_norm = (1/(2 * M_PI * std_x * std_y));
-			double std_x_square = pow(std_x,2) * 2;
-			double std_y_square = pow(std_y,2) * 2;
-
 			for (int j = 0; j < transformed_observations.size(); j++) {
 				// Placeholers Observations and Predictions
 
@@ -244,7 +246,10 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 				x_diff = pred_x - obs_x;
 				y_diff = pred_y - obs_y;
 
-				double obs_mvgd_w = gauss_norm * exp(-(pow(x_diff,2)/(2 * std_x_square) + (pow(y_diff,2)/(2 * std_y_square))));
+				exponent = (x_diff * x_diff)/(2 * K_STD_X_SQUARE) + (y_diff * y_diff)/(2 * K_STD_Y_SQUARE);
+
+				//obs_mvgd_w = K_GAUSS_NORM * exp(-(pow(x_diff,2)/(2 * K_STD_X_SQUARE) + (pow(y_diff,2)/(2 * K_STD_Y_SQUARE))));
+				obs_mvgd_w = K_GAUSS_NORM * exp(-exponent);
 
 				// Product of obs_mgvd_w with the total observation weight
 				w *= obs_mvgd_w;
