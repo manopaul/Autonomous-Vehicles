@@ -39,7 +39,7 @@ Tips for setting up your environment can be found [here](https://classroom.udaci
 
 ## Reflection
 
-# Describe the effect each of the P, I, D components had in your implementation.
+### Describe the effect each of the P, I, D components had in your implementation.
 
 The Proportional (P), Integral (I) and Differential (D) coefficients each has an impact in the way the vehicle drove around the track. 
 In order to understand how they impacted the drive, I tried setting just one of the coefficients first (P Only, D Only, I Only) and then combination of two of the coefficients (PD only, DI only, PI only), before setting all three coefficients (PID) and observed the drive in the simulator. 
@@ -61,7 +61,7 @@ When the PID coefficients were initialized as pid.Init(0.15,0.5,4.0) (note: larg
 Reverting back to the original value for the D coefficient (0.0004), I reduce the I coefficient from 4.0 to 3.0 and noticed that the car stayed on course throughout reaching a maximum speed of ~71 mph, but was relatively oscillating more on the bridge. 
 Visual aids are encouraged, i.e. record of a small video of the car in the simulator and describe what each component is set to.
 
-# Describe how the final hyperparameters were chosen. Student discusses how they chose the final hyperparameters (P, I, D coefficients). This could be have been done through manual tuning, twiddle, SGD, or something else, or a combination!
+### Describe how the final hyperparameters were chosen. Student discusses how they chose the final hyperparameters (P, I, D coefficients). This could be have been done through manual tuning, twiddle, SGD, or something else, or a combination!
 
 Hyperparameters were identified by several manual trials and errors (tuning). 
 
