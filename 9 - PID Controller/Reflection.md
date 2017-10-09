@@ -18,6 +18,7 @@ When the P and D and I controller were set as pid.Init(0.15,0.0004,4.0), the car
 
 When these parameters were determined, I attempted to try different combinations of PID coefficients to see their impact.
 When the PID coefficients were initialized as pid.Init(0.15,0.5,4.0) (note: large D value), interestingly from the start, the car started going in reverse and veered of the road. 
+[![PID Controller - Large D Coefficient]](https://youtu.be/4eW6z7TcikI)
 
 Reverting back to the original value for the D coefficient (0.0004), I reduce the I coefficient from 4.0 to 3.0 and noticed that the car stayed on course throughout reaching a maximum speed of ~71 mph, but was relatively oscillating more on the bridge. 
 Visual aids are encouraged, i.e. record of a small video of the car in the simulator and describe what each component is set to.
