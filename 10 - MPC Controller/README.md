@@ -22,24 +22,43 @@ The terminal should output "Connected" and then the simluator should display how
 ## The Model
 Student describes their model in detail. This includes the state, actuators and update equations.
 
-Vehicle models that were covered were the Kinematic and dynamic models. In this MPC Controller project, the kinematic model was used to predict the trajectory (center of the road) that the vehicle would need to traverse, given the waypoints (lake_track_waypoints.csv) as inputs, and computing the cross track error (cte) and the orientation error (epsi). The cte tells us how far the vehicle is away from the center of the road or predicted trajectory and the epsi is the error in the orientation angle of the car relatively to the predicted waypoints. The cte and epsi are collectively used as the cost function. 
-In order for the vehicle to safely navigate and drive autonomously, the cost function should minimize the error. 
-We previously captured two errors in our state vector: cte and eψ.
+Vehicle models that were covered were the Kinematic and dynamic models. In this MPC Controller project, the kinematic model was used to predict the trajectory (center of the road) that the vehicle would need to traverse (aka reference trajectory or desired trajectory), given the waypoints (lake_track_waypoints.csv) as inputs, and computing the cross track error (cte) and the orientation error (epsi). The cte and epsi gives will give us the computed trajectory. The cte tells us how far the vehicle is away from the center of the road or predicted trajectory and the epsi is the error in the orientation angle of the car relatively to the predicted waypoints. The cte and epsi are collectively used as the cost function. 
+In order for the vehicle to safely navigate and drive autonomously, the cost function should minimize the error - cte and eψ (epsi).
 
-The kinematic model takes into account the following:
-State of the vehicle:
+The kinematic model takes into account the following: State, Actuators, and Update Equations
+
+State:
+px, py, psi and v are the four variable used to describe the state of the vehicle. 
+px - gives the current position of the vehicle in the X-axis
+py - gives the current position of the vehicle in the Y-axis
+psi - gives the orientation (heading angle) of the vehicle
+and 
+v - gives us the current velocity that the vehicle is traveling at. 
 
 Actuators: 
-Upon computation of the cost function, the two actuators that were 
+The such as steering angle (delta) and acceleration (positive of moving forward and negative for braking) are control inputs that need to also be taken into account. 
+The cost function is not limited to the state of the vehicle along. We can also include the control inputs. This way, we can adjust for sharp turns when changing lanes by computing the cost function with a compensation (penalizing) factor for making smoother and non-abrupt turns. 
 
+Update Equation for the model now takes into account 
+the 4 State variables (px, py, psi and v) and 
+the 2 Control inputs (delta and a) 
+The equations to solve the cost function is now
 
 
 ## Timestep Length and Elapsed Duration (N & dt)
 Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
 
+Here we had to assign values to N and dt. It's likely you set these variables to slightly different values. That's fine as long as the cross track error decreased to 0. It's a good idea to play with different values here.
+
+For example, if we were to set N to 100, the simulation would run much slower. This is because the solver would have to optimize 4 times as many control inputs. Ipopt, the solver, permutes the control input values until it finds the lowest cost. If you were to open up Ipopt and plot the x and y values as the solver mutates them, the plot would look like a worm moving around trying to fit the shape of the reference trajectory.
+
+
 ## Polynomial Fitting and MPC Preprocessing
 A polynomial is fitted to waypoints.
 If the student preprocesses waypoints, the vehicle state, and/or actuators prior to the MPC procedure it is described.
+
+The reference or desired trajectory is usually passed to the control block as a polynomial. In the lesson we worked with 1st order polynomial but in this MPC project, a 3rd order polynomial was used since 3rd order polynomials can fit trajectories for most roads. 
+Using the polyfit function, the 3rd order polynomial that was computed was made to fit to the given x and y coordinates that represented the waypoints. Then the polyeval function was used to evaluate y values for each given x coordinate. 
 
 ## Model Predictive Control with Latency
 The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
