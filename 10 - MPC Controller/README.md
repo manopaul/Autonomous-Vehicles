@@ -8,9 +8,27 @@ Self-Driving Car Engineer Nanodegree Program
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./mpc`.
-When you run the program in your terminal (or command prompt), you will see a message "Listening on port 4567"
+When you run the program in your terminal (or command prompt), you will see a message "Listening to port 4567"
 5. Start the Simulator and navigate to Project 5 in the simulator and click on Select. 
-The terminal should output "Connected" and then 
+The terminal should output "Connected" and then the simluator should display how the MPC controller works. The terminal will output the MPC calculations as well. 
+6. You can stop by quitting the simulator
+
+
+## Implementation Details
+
+#The Model
+Student describes their model in detail. This includes the state, actuators and update equations.
+
+#Timestep Length and Elapsed Duration (N & dt)
+Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
+
+#Polynomial Fitting and MPC Preprocessing
+A polynomial is fitted to waypoints.
+If the student preprocesses waypoints, the vehicle state, and/or actuators prior to the MPC procedure it is described.
+
+#Model Predictive Control with Latency
+The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
+
 
 ---
 ## Dependencies
