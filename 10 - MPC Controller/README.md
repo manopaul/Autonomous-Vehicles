@@ -1,4 +1,4 @@
-# CarND-Controls-MPC
+# CarND-Controls-MPC 
 Self-Driving Car Engineer Nanodegree Program
 
 ---
@@ -17,10 +17,22 @@ The terminal should output "Connected" and then the simluator should display how
 
 6. You can stop by quitting the simulator
 
-# Implementation Details
+# Implementation 
 
 ## The Model
 Student describes their model in detail. This includes the state, actuators and update equations.
+
+Vehicle models that were covered were the Kinematic and dynamic models. In this MPC Controller project, the kinematic model was used to predict the trajectory (center of the road) that the vehicle would need to traverse, given the waypoints (lake_track_waypoints.csv) as inputs, and computing the cross track error (cte) and the orientation error (epsi). The cte tells us how far the vehicle is away from the center of the road or predicted trajectory and the epsi is the error in the orientation angle of the car relatively to the predicted waypoints. The cte and epsi are collectively used as the cost function. 
+In order for the vehicle to safely navigate and drive autonomously, the cost function should minimize the error. 
+We previously captured two errors in our state vector: cte and eψ.
+
+The kinematic model takes into account the following:
+State of the vehicle:
+
+Actuators: 
+Upon computation of the cost function, the two actuators that were 
+
+
 
 ## Timestep Length and Elapsed Duration (N & dt)
 Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
@@ -32,6 +44,9 @@ If the student preprocesses waypoints, the vehicle state, and/or actuators prior
 ## Model Predictive Control with Latency
 The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
 
+# Simulation
+
+The vehicle must successfully drive a lap around the track. No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle). The car can't go over the curb, but, driving on the lines before the curb is ok.
 
 ---
 ## Dependencies
