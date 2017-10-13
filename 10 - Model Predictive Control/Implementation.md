@@ -60,5 +60,4 @@ The vehicle must successfully drive a lap around the track. No tire may leave th
 Video of the simulation can be found at:
 [![MPC Controller Video](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/MPC-YouTube.png)](https://youtu.be/Y37twslZZ4Y)
 
-# Credits
-Images - screen captured from Udacity Course Lessons
+Note: Images - screen captured from Udacity Course Lessons
