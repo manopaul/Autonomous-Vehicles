@@ -35,7 +35,7 @@ psi - gives the orientation (heading angle) of the vehicle
 and 
 v - gives us the current velocity that the vehicle is traveling at. 
 
-[![MPC State](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State.png)]
+[!MPC State](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State.png)]
 The state vector is [x,y,ψ,v]
 
 Actuators: 
