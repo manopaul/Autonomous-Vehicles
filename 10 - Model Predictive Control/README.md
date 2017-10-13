@@ -43,11 +43,11 @@ The such as steering angle (delta) and acceleration (positive of moving forward 
 The cost function is not limited to the state of the vehicle along. We can also include the control inputs. This way, we can adjust for sharp turns when changing lanes by computing the cost function with a compensation (penalizing) factor for making smoother and non-abrupt turns. 
 
 Upon computing the cte and epsi, the new state vector is [x,y,ψ,v,cte,eψ].
-[!MPC New State Vector](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State_Vector.png)
+[![MPC New State Vector](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State_Vector.png)]
 
 Update Equation for the model now takes into account the 4 State variables (px, py, psi and v) and the 2 Control inputs (delta and a). 
 
-[!MPC Model Equations](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/Model_Equations.png)
+[![MPC Model Equations](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/Model_Equations.png)]
 
 ## Timestep Length and Elapsed Duration (N & dt)
 Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
