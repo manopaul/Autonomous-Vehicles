@@ -34,6 +34,7 @@ py - gives the current position of the vehicle in the Y-axis
 psi - gives the orientation (heading angle) of the vehicle
 and 
 v - gives us the current velocity that the vehicle is traveling at. 
+The state vector is [x,y,ψ,v]
 
 Actuators: 
 The such as steering angle (delta) and acceleration (positive of moving forward and negative for braking) are control inputs that need to also be taken into account. 
@@ -48,10 +49,8 @@ The equations to solve the cost function is now
 ## Timestep Length and Elapsed Duration (N & dt)
 Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
 
-Here we had to assign values to N and dt. It's likely you set these variables to slightly different values. That's fine as long as the cross track error decreased to 0. It's a good idea to play with different values here.
-
-For example, if we were to set N to 100, the simulation would run much slower. This is because the solver would have to optimize 4 times as many control inputs. Ipopt, the solver, permutes the control input values until it finds the lowest cost. If you were to open up Ipopt and plot the x and y values as the solver mutates them, the plot would look like a worm moving around trying to fit the shape of the reference trajectory.
-
+Started out by using the values that were given in lesson at 25 and 0.05 and found the simulation to be slow and choppy. With repeated trials it seemed that the value of 7 and 0.1 for N and dt was optimal and the simulation was not slow. 
+Increasing the value of N made the simulation slow and decreasing the value of dt to 0.05 made the vehicle oscillate relatively more as the vehicle was trying to fit around the reference trajectory. 
 
 ## Polynomial Fitting and MPC Preprocessing
 A polynomial is fitted to waypoints.
@@ -63,9 +62,16 @@ Using the polyfit function, the 3rd order polynomial that was computed was made 
 ## Model Predictive Control with Latency
 The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
 
-# Simulation
+Upon computing the cte and epsi, the new state vector is [x,y,ψ,v,cte,eψ].
+Additionally, taking into account the car's vantage point, the px and py values at the point where the car is was set as 0 and since the angle in which the car is heading was considered as the x axis the psi at that point was also set a 0, simplifying the equation for MPC.
 
+In a real world situation since the actuation command to change the steering angle or speed won't execute instantly - there will be a delay as the command propagates through the system. This is refered to as latency and speculated to be about 100 milliseconds. Latency was handled in this project by using the previously (N-2) steering angle (delta) and acceleration (a) values instead of the computed (N-1) values.
+
+# Simulation
 The vehicle must successfully drive a lap around the track. No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle). The car can't go over the curb, but, driving on the lines before the curb is ok.
+
+Video of the simulation can be found at:
+
 
 ---
 ## Dependencies
