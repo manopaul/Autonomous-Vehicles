@@ -2,7 +2,14 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+## Basic Build Instructions
 
+1. Clone this repo.
+2. Make a build directory: `mkdir build && cd build`
+3. Compile: `cmake .. && make`
+4. Run it: `./mpc`.
+
+---
 ## Dependencies
 
 * cmake >= 3.5
@@ -31,12 +38,7 @@ Self-Driving Car Engineer Nanodegree Program
 * Not a dependency but read the [DATA.md](./DATA.md) for a description of the data sent back from the simulator.
 
 
-## Basic Build Instructions
 
-1. Clone this repo.
-2. Make a build directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-4. Run it: `./mpc`.
 
 ## Tips
 
