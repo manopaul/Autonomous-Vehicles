@@ -2,15 +2,19 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
-# Basic Build Instructions
+# Compilation Details (Basic Build Instructions)
 
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./mpc`.
+
 When you run the program in your terminal (or command prompt), you will see a message "Listening to port 4567"
+
 5. Start the Simulator and navigate to Project 5 in the simulator and click on Select. 
+
 The terminal should output "Connected" and then the simluator should display how the MPC controller works. The terminal will output the MPC calculations as well. 
+
 6. You can stop by quitting the simulator
 
 # Implementation Details
