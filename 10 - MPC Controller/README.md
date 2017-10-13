@@ -2,7 +2,7 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
-## Basic Build Instructions
+# Basic Build Instructions
 
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
@@ -13,19 +13,19 @@ When you run the program in your terminal (or command prompt), you will see a me
 The terminal should output "Connected" and then the simluator should display how the MPC controller works. The terminal will output the MPC calculations as well. 
 6. You can stop by quitting the simulator
 
-## Implementation Details
+# Implementation Details
 
-# The Model
+## The Model
 Student describes their model in detail. This includes the state, actuators and update equations.
 
-# Timestep Length and Elapsed Duration (N & dt)
+## Timestep Length and Elapsed Duration (N & dt)
 Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
 
-# Polynomial Fitting and MPC Preprocessing
+## Polynomial Fitting and MPC Preprocessing
 A polynomial is fitted to waypoints.
 If the student preprocesses waypoints, the vehicle state, and/or actuators prior to the MPC procedure it is described.
 
-# Model Predictive Control with Latency
+## Model Predictive Control with Latency
 The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
 
 
