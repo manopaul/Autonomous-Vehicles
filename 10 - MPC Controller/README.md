@@ -8,6 +8,9 @@ Self-Driving Car Engineer Nanodegree Program
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./mpc`.
+When you run the program in your terminal (or command prompt), you will see a message "Listening on port 4567"
+5. Start the Simulator and navigate to Project 5 in the simulator and click on Select. 
+The terminal should output "Connected" and then 
 
 ---
 ## Dependencies
