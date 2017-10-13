@@ -34,16 +34,20 @@ py - gives the current position of the vehicle in the Y-axis
 psi - gives the orientation (heading angle) of the vehicle
 and 
 v - gives us the current velocity that the vehicle is traveling at. 
+
+[![MPC State](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State.png)]
 The state vector is [x,y,ψ,v]
 
 Actuators: 
 The such as steering angle (delta) and acceleration (positive of moving forward and negative for braking) are control inputs that need to also be taken into account. 
 The cost function is not limited to the state of the vehicle along. We can also include the control inputs. This way, we can adjust for sharp turns when changing lanes by computing the cost function with a compensation (penalizing) factor for making smoother and non-abrupt turns. 
 
-Update Equation for the model now takes into account 
-the 4 State variables (px, py, psi and v) and 
-the 2 Control inputs (delta and a) 
-The equations to solve the cost function is now
+Upon computing the cte and epsi, the new state vector is [x,y,ψ,v,cte,eψ].
+[![MPC New State Vector](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State_Vector.png)]
+
+Update Equation for the model now takes into account the 4 State variables (px, py, psi and v) and the 2 Control inputs (delta and a). 
+
+[![MPC Model Equations](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/Model_Equations.png)]
 
 
 ## Timestep Length and Elapsed Duration (N & dt)
@@ -62,7 +66,7 @@ Using the polyfit function, the 3rd order polynomial that was computed was made 
 ## Model Predictive Control with Latency
 The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
 
-Upon computing the cte and epsi, the new state vector is [x,y,ψ,v,cte,eψ].
+
 Additionally, taking into account the car's vantage point, the px and py values at the point where the car is was set as 0 and since the angle in which the car is heading was considered as the x axis the psi at that point was also set a 0, simplifying the equation for MPC.
 
 In a real world situation since the actuation command to change the steering angle or speed won't execute instantly - there will be a delay as the command propagates through the system. This is refered to as latency and speculated to be about 100 milliseconds. Latency was handled in this project by using the previously (N-2) steering angle (delta) and acceleration (a) values instead of the computed (N-1) values.
