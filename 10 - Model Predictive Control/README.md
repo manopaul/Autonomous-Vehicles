@@ -69,7 +69,6 @@ Using the polyfit function, the 3rd order polynomial that was computed was made 
 ## Model Predictive Control with Latency
 The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
 
-
 Additionally, taking into account the car's vantage point, the px and py values at the point where the car is was set as 0 and since the angle in which the car is heading was considered as the x axis the psi at that point was also set a 0, simplifying the equation for MPC.
 
 In a real world situation since the actuation command to change the steering angle or speed won't execute instantly - there will be a delay as the command propagates through the system. This is refered to as latency and speculated to be about 100 milliseconds. Latency was handled in this project by using the previously (N-2) steering angle (delta) and acceleration (a) values instead of the computed (N-1) values.
@@ -79,6 +78,9 @@ The vehicle must successfully drive a lap around the track. No tire may leave th
 
 Video of the simulation can be found at:
 [![MPC Controller Video](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/MPC-YouTube.png)](https://youtu.be/Y37twslZZ4Y)
+
+# Credits
+Images - screen captured from Udacity Course Lessons
 
 ---
 ## Dependencies
