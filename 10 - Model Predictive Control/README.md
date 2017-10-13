@@ -29,13 +29,16 @@ The kinematic model takes into account the following: State, Actuators, and Upda
 
 State:
 px, py, psi and v are the four variable used to describe the state of the vehicle. 
+
 px - gives the current position of the vehicle in the X-axis
+
 py - gives the current position of the vehicle in the Y-axis
-psi - gives the orientation (heading angle) of the vehicle
-and 
+
+psi - gives the orientation (heading angle) of the vehicle and 
+
 v - gives us the current velocity that the vehicle is traveling at. 
 
-[![MPC State]](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State.png)
+[![MPC State](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State.png)]
 The state vector is [x,y,ψ,v]
 
 Actuators: 
@@ -103,9 +106,6 @@ Video of the simulation can be found at:
 * [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page). This is already part of the repo so you shouldn't have to worry about it.
 * Simulator. You can download these from the [releases tab](https://github.com/udacity/self-driving-car-sim/releases).
 * Not a dependency but read the [DATA.md](./DATA.md) for a description of the data sent back from the simulator.
-
-
-
 
 ## Tips
 
