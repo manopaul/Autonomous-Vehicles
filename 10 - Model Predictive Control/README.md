@@ -39,6 +39,7 @@ psi - gives the orientation (heading angle) of the vehicle and
 v - gives us the current velocity that the vehicle is traveling at. 
 
 ![MPC State](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State.png)
+
 The state vector is [x,y,ψ,v]
 
 Actuators: 
@@ -49,7 +50,6 @@ Upon computing the cte and epsi, the new state vector is [x,y,ψ,v,cte,eψ].
 ![MPC New State Vector](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/State_Vector.png)
 
 Update Equation for the model now takes into account the 4 State variables (px, py, psi and v) and the 2 Control inputs (delta and a). 
-
 ![MPC Model Equations](https://github.com/manopaul/Autonomous-Vehicles/blob/master/10%20-%20Model%20Predictive%20Control/images/Model_Equations.png)
 
 ## Timestep Length and Elapsed Duration (N & dt)
