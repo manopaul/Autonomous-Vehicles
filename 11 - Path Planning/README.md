@@ -16,7 +16,6 @@ The code compiles correctly without errors with cmake and make.
 ##Valid Trajectories
 
 The car is able to drive at least 4.32 miles without incident.
-[![Safe Driving](https://github.com/manopaul/Autonomous-Vehicles/blob/master/11%20-%20Path%20Planning/images/Drive432miles.png)]
 
 The car drives within the maximum allowed speed limit of 50 mph. Also the car regulates its speed when it has traffic ahead or around it and drives at 't driving much slower than speed limit unless obstructed by traffic.
 
@@ -87,13 +86,11 @@ Once the lane in which our car is determined, then using the sensor fusion data 
 When our car is obstructed because of a vehicle in front, it checks to see if it is safe to change lanes by checking whether we have any other vehicle to the left or to the right of the car. If it is safe, then the car would change lanes to the left or to the right accordingly. If it is unsafe, then our car will reduce it speed by 0.224 factor (~ 5 mph) to maintain the safe distance.
 
 ### Using Spline (Code lines 435 - 439)
-Took the recommendation from the Project Walkthrough video to use Spline and used it.
+A really helpful resource for doing this project and creating smooth trajectories was using http://kluge.in-chemnitz.de/opensource/spline/, the spline function is in a single header file is really easy to use.
 
 ### Spline points (Code lines 452-470)
 By determining what our target x and target y position on the spline needs to be and using the safe distance for the car,
 we calculate the spline points so that we can travel at our desired reference velocity and we fill up the rest of the path planner after filling it with previous points (always outputting 50 points)
-
-[![Spline Points](https://github.com/manopaul/Autonomous-Vehicles/blob/master/11%20-%20Path%20Planning/images/SplinePoints.png)]
 
 ### Improvements
 Though this code compiles and meets the requirements of our car to navigate a course autonomously, there are certain improvements that can be made to improve this.
