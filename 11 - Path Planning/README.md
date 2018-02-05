@@ -5,7 +5,10 @@
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./path_planning`.
+4. Run it: `./path_planning`
+
+## Simulator
+Launch simulator and select to run the simulator. The terminal window should show "Connected" if setup is successful.
 
 # Project Rubric
 
