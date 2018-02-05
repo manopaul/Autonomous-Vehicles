@@ -90,7 +90,7 @@ A really helpful resource for doing this project and creating smooth trajectorie
 ### Spline points (Code lines 452-470)  
 By determining what our target x and target y position on the spline needs to be and using the safe distance for the car,
 we calculate the spline points so that we can travel at our desired reference velocity and we fill up the rest of the path planner after filling it with previous points (always outputting 50 points)
-![picture](images/SplinePoints.png)
+![picture](images/SplinePts.png)
 
 ### Improvements  
 Though this code compiles and meets the requirements of our car to navigate a course autonomously, there are certain improvements that can be made to improve this.  
