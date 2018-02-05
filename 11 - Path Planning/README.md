@@ -5,7 +5,10 @@
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./path_planning`.
+4. Run it: `./path_planning`
+
+## Simulator
+Launch simulator and select to run the simulator. The terminal window should show "Connected" if setup is successful.
 
 # Project Rubric
 
@@ -16,6 +19,9 @@ The code compiles correctly without errors with cmake and make.
 ## Valid Trajectories
 
 The car is able to drive at least 4.32 miles without incident.  
+
+![picture](images/Drive432miles.png)
+
 The car drives within the maximum allowed speed limit of 50 mph. Also the car regulates its speed when it has traffic ahead or around it and drives at 't driving much slower than speed limit unless obstructed by traffic.  
 
 Max Acceleration and Jerk are not Exceeded.  
@@ -86,7 +92,8 @@ A really helpful resource for doing this project and creating smooth trajectorie
 
 ### Spline points (Code lines 452-470)  
 By determining what our target x and target y position on the spline needs to be and using the safe distance for the car,
-we calculate the spline points so that we can travel at our desired reference velocity and we fill up the rest of the path planner after filling it with previous points (always outputting 50 points)  
+we calculate the spline points so that we can travel at our desired reference velocity and we fill up the rest of the path planner after filling it with previous points (always outputting 50 points)
+![picture](images/SplinePts.png)
 
 ### Improvements  
 Though this code compiles and meets the requirements of our car to navigate a course autonomously, there are certain improvements that can be made to improve this.  
